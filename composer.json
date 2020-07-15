@@ -1,0 +1,12 @@
+{
+    "require": {
+        "coffeecode/router": "^1.0",
+        "illuminate/database": "^7.19",
+        "illuminate/pagination": "^7.20"
+    },
+    "autoload" : {
+        "psr-4":{
+            "Src\\":"src/"
+        }
+    }
+}
