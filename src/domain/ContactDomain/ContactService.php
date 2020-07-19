@@ -5,9 +5,12 @@ use Illuminate\Database\Capsule\Manager as DB;
 class ContactService{
 
     
-  
+   public function getContact($data){
+      return Contact::where('id', $data['id'])->get();
+
+   }
    public function getContacts($data){
-      $page = isset($data['page']) ? $data['page'] : 1;
+      $page = isset($_GET['page']) ? $_GET['page'] : 1;
       return DB::table('contacts')->orderBy('name', 'asc')->paginate(8,['*'],'page', $page);
     }
     
@@ -25,7 +28,7 @@ class ContactService{
             return $updatedContact;
         }
         return false;
-     }
+     } 
 
     public function deleteContact($contact_id){
         return Contact::where(['id' => $contact_id])->delete();

@@ -14,6 +14,15 @@ class ContactController {
         $this->contactValidation = new ContactValidation();
     }
 
+
+    public function getContact($data){
+        
+        $contact = $this->contactService->getContact($data);
+        echo  json_encode($contact);
+       
+    }
+    
+
     public function getContacts($data){
         
         $contacts = $this->contactService->getContacts($data);
@@ -56,7 +65,6 @@ class ContactController {
     }
     
     public function deleteContact($data){
-       
         $this->contactService->deleteContact($data['id']);
         echo  json_encode(['deleted' => true]);
         
